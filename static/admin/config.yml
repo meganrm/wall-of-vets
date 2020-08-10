@@ -36,7 +36,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "group"}
       - {label: "Group name", name: "title", widget: "string"}
-      - {label: "City", name: "title", widget: "string"}
+      - {label: "City", name: "city", widget: "string"}
       - {label: "State", name: "state", widget: "select", options: ["AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY"]}
       - {label: "Location", name: "location", widget: "map", required: false}
       - {label: "Website", name: "url", widget: string, required: false}
