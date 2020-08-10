@@ -28,24 +28,30 @@ collections:
       - {label: "Link name", name: "link-name", widget: string, required: false}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-  - name: "groups"
-    label: "Groups"
+  - name: "group"
+    label: "Group"
     folder: "src/pages/groups"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "group"}
       - {label: "Group name", name: "title", widget: "string"}
-      - {label: "City", name: "city", widget: "string"}
-      - {label: "State", name: "state", widget: "select", options: ["AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY"]}
-      - {label: "Location", name: "location", widget: "map", required: false}
-      - {label: "Website", name: "url", widget: string, required: false}
-      - {label: "Twitter", name: "twitter", widget: string, required: false}
-      - {label: "Facebook", name: "facebook", widget: string, required: false}
-      - {label: "Instagram", name: "instagram", widget: string, required: false}
-      - {label: "Contact name", name: "contact-name", widget: string, required: false}
-      - {label: "Contact email", name: "contact-email", widget: string, required: false}
-      - {label: "Make Contact Public", name: "make-contact-public", widget: boolean, required: false}
+      - {label: Social media, name: social, widget: object, fields: [
+          {label: "Website", name: "url", widget: string, required: false},
+          {label: "Twitter", name: "twitter", widget: string, required: false},
+          {label: "Facebook", name: "facebook", widget: string, required: false},
+          {label: "Instagram", name: "instagram", widget: string, required: false},
+      ]}
+      - {label: Contact, name: contact, widget: object, fields: [
+          {label: "Contact name", name: "contact-name", widget: string, required: false},
+          {label: "Contact email", name: "contact-email", widget: string, required: false},
+          {label: "Make Contact Public", name: "make-contact-public", widget: boolean, required: false},
+      ]}
+      - {label: Location, name: location, widget: object, fields: [
+          {label: "City", name: "city", widget: "string"},
+          {label: "State", name: "state", widget: "select", options: ["AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY"]},
+          {label: "Specific Location", name: "location", widget: "map", required: false},
+      ]}
   - name: "pages"
     label: "Pages"
     files:
@@ -58,10 +64,7 @@ collections:
           - {label: Image, name: image, widget: image}
           - {label: Heading, name: heading, widget: string}
           - {label: Subheading, name: subheading, widget: string}
-          - {label: Mainpitch, name: mainpitch, widget: object, fields: [{label: Title, name: title, widget: string}, {label: Description, name: description, widget: text}]}
           - {label: Description, name: description, widget: string}
-          - {label: Intro, name: intro, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Blurbs, name: blurbs, widget: list, fields: [{label: Image, name: image, widget: image}, {label: Text, name: text, widget: text}]}]}
-          - {label: Main, name: main, widget: object, fields: [{label: Heading, name: heading, widget: string}, {label: Description, name: description, widget: text}, {label: Image1, name: image1, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image2, name: image2, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}, {label: Image3, name: image3, widget: object, fields: [{label: Image, name: image, widget: image}, {label: Alt, name: alt, widget: string}]}]}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
