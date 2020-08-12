@@ -28,9 +28,9 @@ collections:
       - {label: "Link name", name: "link-name", widget: string, required: false}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
-  - name: "group"
-    label: "Group"
-    folder: "src/pages/groups"
+  - name: "groups"
+    label: "Groups"
+    folder: "src/pages/group"
     create: true
     slug: "{{slug}}"
     fields:
