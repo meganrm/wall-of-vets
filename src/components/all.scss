@@ -48,7 +48,7 @@ $menu-label-color: $white-ter;
 .full-width-image {
 
   width: 100vw;
-  height: 400px;
+  height: 200px;
   background-size: cover;
   background-position: bottom;
   display: flex;
@@ -110,6 +110,10 @@ footer.footer {
   height: 1em;
   vertical-align: middle;
   display: inline;
+}
+
+.blog-list-item {
+  background-color: gray!important;
 }
 
 @import "~bulma";
