@@ -14,7 +14,7 @@ class VetMap extends React.Component {
   }
   componentDidMount() {
     // initialize the map on the "map" div with a given center and zoom
-    this.map = L.map('map', {
+    const map = L.map('map', {
       bounds: [
         [23.6, -128.8],
         [50.2, -65.4],
@@ -22,6 +22,9 @@ class VetMap extends React.Component {
       center: [39.8097343, -98.5556199],
       zoom: 4
     });
+    map.scrollWheelZoom.disable();
+
+    this.map = map;
     L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.png', {
       foo: 'bar',
       attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -33,7 +36,13 @@ class VetMap extends React.Component {
       edges: groups
     } = data.allMarkdownRemark
     this.addMarkers(groups);
+    this.map.on('click', function () {
+    
+        map.scrollWheelZoom.enable();
+      
+    });
   }
+
 
   addMarkers = (groups) => {
     const { map: thisMap } = this;
@@ -49,8 +58,12 @@ class VetMap extends React.Component {
 
     });
     groups.map(({node: group}) => {
-      const location = JSON.parse(group.frontmatter.location)
+      const location = JSON.parse(group.frontmatter.location.location)
       const latlng = [location.coordinates[1], location.coordinates[0]]
+      const popupContent = `<div>${group.frontmatter.title} <br/>
+        ${group.frontmatter.location.city} <br />
+        ${group.frontmatter.location.state}
+      </div>`
       let marker = L.marker(latlng, {
         icon
       }).addTo(thisMap);
@@ -99,8 +112,17 @@ export default () => (
               frontmatter {
                 title
                 templateKey
-                twitter
-                location
+                social {
+                  url
+                  twitter
+                  facebook
+                  instagram
+                }
+                location {
+                  city
+                  state
+                  location
+                }
               }
             }
           }

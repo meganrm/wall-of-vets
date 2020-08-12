@@ -6,7 +6,7 @@ title: "'Waking up suburbia': Trump's use of federal agents backfired, spurring
 date: 2020-08-12T05:36:19.644Z
 description: Article in Business Insider
 link: https://www.msn.com/en-us/news/us/waking-up-suburbia-trump-s-use-of-federal-agents-backfired-spurring-members-of-the-wall-of-moms-and-wall-of-vets-groups-into-action-in-portland/ar-BB17Bcwn
-link-name: Link to article
+linkname: Link to article
 tags:
   - Article
 ---

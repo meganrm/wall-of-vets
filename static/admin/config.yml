@@ -25,9 +25,9 @@ collections:
       - {label: "Featured Post", name: "featuredpost", widget: "boolean", required: false}
       - {label: "Featured Image", name: "featuredimage", widget: image, required: false}
       - {label: "Link to article", name: "link", widget: string, required: false}
-      - {label: "Link name", name: "link-name", widget: string, required: false}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Link name", name: "linkname", widget: string, required: false}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
   - name: "groups"
     label: "Groups"
     folder: "src/pages/group"
@@ -50,7 +50,7 @@ collections:
       - {label: Location, name: location, widget: object, fields: [
           {label: "City", name: "city", widget: "string"},
           {label: "State", name: "state", widget: "select", options: ["AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY"]},
-          {label: "Specific Location", name: "location", widget: "map", required: false},
+          {label: "Specific Location (click on map)", name: "location", widget: "map"},
       ]}
   - name: "pages"
     label: "Pages"
