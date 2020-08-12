@@ -2,17 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
-// import {
-//   Map,
-//   TileLayer,
-//   Marker,
-//   Popup
-// } from 'react-leaflet'
+
+import {
+  Map,
+  TileLayer,
+  Marker,
+  Popup
+} from 'react-leaflet'
+
 import 'leaflet/dist/leaflet.css';
 
 import './map.scss';
 
-class BlogRoll extends React.Component {
+class VetMap extends React.Component {
   state = {
     lat: 51.505,
     lng: -0.09,
@@ -22,9 +24,8 @@ class BlogRoll extends React.Component {
     const { data } = this.props
     const { edges: groups } = data.allMarkdownRemark
 
-    const position = [this.state.lat, this.state.lng]
-    // console.log(groups)
-    return (<di></di>
+    console.log(groups)
+    return (<div></div>
       // <Map 
       //   bounds = {
       //     [
@@ -38,17 +39,17 @@ class BlogRoll extends React.Component {
       //     attribution='Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       //     url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}{r}.png"
       //   />
-        /* {groups.map(({node: group}) => (
-            <Marker position={position}>
-              <Popup>{group.frontmatter}</Popup>
-            </Marker>
-        ))} */
+      //   {/* {groups.map(({node: group}) => (
+      //       <Marker position={position}>
+      //         <Popup>{group.frontmatter}</Popup>
+      //       </Marker>
+      //   ))} */}
       // </Map>
     )
   }
 }
 
-BlogRoll.propTypes = {
+VetMap.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -59,7 +60,7 @@ BlogRoll.propTypes = {
 export default () => (
   <StaticQuery
     query={graphql`
-      query BlogRollQuery {
+      query vetMapQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
           filter: { frontmatter: { templateKey: { eq: "group" } } }
@@ -82,6 +83,6 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <BlogRoll data={data} count={count} />}
+    render={(data, count) => <VetMap data={data} count={count} />}
   />
 )

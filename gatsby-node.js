@@ -95,7 +95,7 @@ exports.onCreateWebpackConfig = ({
     actions.setWebpackConfig({
       module: {
         rules: [{
-          test: /leaflet/,
+          test: /react-leaflet/,
           use: loaders.null(),
         }, ],
       },
