@@ -1,19 +1,16 @@
 ---
 templateKey: 'about-page'
 path: /about
-title: About our values
+title: #WallOfVets Mission Statement
 ---
-### Shade-grown coffee
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
+Wall of Vets is a group of U.S. Military Veterans and their families from all branches of the uniformed services.
 
-### Single origin
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
+We swore an oath to defend the Constitution and the people of the United States of America, and that is an oath that never expires. 
 
-### Sustainable farming
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
+We support peaceful protests and people who are legally exercising their Constitutional and Civil rights; we will stand as a shield between them and those who would violate those rights. 
 
-### Direct sourcing
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
+We are not trying to change the narrative of the protests we support. We help make their message heard by showing our support. We will support and follow the lead of the local organizers. 
 
-### Reinvest profits
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.
+We DO NOT condone violence, the breaking of any laws, rioting or looting. 
+
+We fully support BLM, LBGTQ+ and equal rights for all. 
