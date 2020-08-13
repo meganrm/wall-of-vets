@@ -17,6 +17,7 @@ body {
 }
 
 h1, h2, h3, h4 {
+  color: $body-color!important;
   font-family:'Oswald', sans-serif;
 }
 //Menu overrides
@@ -30,6 +31,16 @@ $menu-label-color: $white-ter;
 
 
 // Helper Classes
+.main-page-container {
+  .sidebar {
+    background: #4a4a4a;
+    box-shadow: inset 0px 0px 7px #000;
+  }
+  .column {
+    padding:0!important;
+  }
+}
+
 .full-width-image-container {
 
   width: 100vw;
@@ -45,6 +56,10 @@ $menu-label-color: $white-ter;
   align-items: center;
 }
 
+.full-width-section {
+  margin: 2em 0;
+}
+
 .full-width-image {
 
   width: 100vw;
@@ -54,6 +69,16 @@ $menu-label-color: $white-ter;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.title-container {
+
+  width: 100vw;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .btn {

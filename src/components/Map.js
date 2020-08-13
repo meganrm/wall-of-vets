@@ -45,6 +45,9 @@ class VetMap extends React.Component {
 
 
   addMarkers = (groups) => {
+    console.log(this.props)
+    const { setGroup } = this.props;
+    console.log(setGroup)
     const { map: thisMap } = this;
     const me = this;
     if (!thisMap) {
@@ -71,15 +74,18 @@ class VetMap extends React.Component {
         //open popup;
         me.popup = L.popup()
           .setLatLng(e.latlng)
-          .setContent(`${group.frontmatter.title}`)
+          .setContent(popupContent)
           .openOn(thisMap);
       });
       marker.on('mouseout', function (e) {
         me.popup.remove();
       });
+      marker.on('click', (e) => {
+        setGroup(group)
+      })
     })
-
   }
+
   render() {
     return (<div className="leaflet-container" id="map"></div>
     )
@@ -94,7 +100,7 @@ VetMap.propTypes = {
   }),
 }
 
-export default () => (
+export default (props) => (
   <StaticQuery
     query={graphql`
       query vetMapQuery {
@@ -129,6 +135,7 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <VetMap data={data} count={count} />}
+    render={(data, count) => (<VetMap data={data} count={count} setGroup={props.setGroup} />)}
+  
   />
 )

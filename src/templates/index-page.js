@@ -4,14 +4,15 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Map from '../components/Map'
+import GroupCard from '../components/GroupCard'
 
 export const IndexPageTemplate = ({
-  image,
   title,
-  heading,
-  subheading,
-  description,
-}) => (
+  selectedGroup,
+  setGroup
+}) => {
+  console.log('set grou', setGroup)
+  return (
   <div>
     <div
       className="full-width-image margin-top-0"
@@ -46,13 +47,39 @@ export const IndexPageTemplate = ({
 
       </div>
     </div>
-    <section className="section section--gradient">
-      <div className="content">
-        <Map />
-      </div>
+    <section className="section--gradient main-page-container full-width-section">
+        <div className="columns">
+          <div className="column is-8">
+              <Map 
+                setGroup={setGroup}
+                />
+          </div>
+          <div className="column is-4 sidebar">
+              {selectedGroup ? <GroupCard 
+                                  title={selectedGroup.frontmatter.title} 
+                                  city={selectedGroup.frontmatter.location.city}
+                                  state={selectedGroup.frontmatter.location.state}
+                                  url={selectedGroup.frontmatter.social.url}
+                                  facebook={selectedGroup.frontmatter.social.facebook}
+                                  twitter={selectedGroup.frontmatter.social.twitter}
+                                  instagram={selectedGroup.frontmatter.social.instagram}
+
+                                  /> : 
+                                  <div className="is-parent card-container" >
+
+                                    <article
+                                      className="blog-list-item tile is-child box"
+                                    >
+                                    Click a group marker on the map to see more information
+                                    </article>
+                                  </div>
+                                  }
+              
+          </div>
+        </div>
     </section>
   </div>
-)
+)}
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -66,23 +93,38 @@ IndexPageTemplate.propTypes = {
   }),
 }
 
-const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+class IndexPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state ={
+      group: null
+    }
+  }
 
-  return (
-    <Layout>
-      <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-      />
-    </Layout>
-  )
+  setGroup = (group) => {
+    this.setState({group})
+  }
+  render ()  {
+    const { data } = this.props;
+    const { frontmatter } = data.markdownRemark
+    return (
+      <Layout>
+        <IndexPageTemplate
+          image={frontmatter.image}
+          title={frontmatter.title}
+          heading={frontmatter.heading}
+          subheading={frontmatter.subheading}
+          mainpitch={frontmatter.mainpitch}
+          description={frontmatter.description}
+          intro={frontmatter.intro}
+          selectedGroup={this.state.group}
+          setGroup={this.setGroup}
+        />
+      </Layout>
+    )
+  }
 }
+
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
