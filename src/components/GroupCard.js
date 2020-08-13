@@ -35,14 +35,14 @@ class GroupCard extends React.Component {
                     <div>{city}, {state}</div>
  
                     <ul className="taglist unstyled-list">
-                        {facebook && <a title="facebook" href={`https://facebook.com/${facebook}`}>
+                        {facebook && <a title="facebook" target="_blank" href={`https://facebook.com/${facebook}`}>
                             <img
-                                src={facebookLogo}
+                                src={facebookLogo}target="_blank" 
                                 alt="Facebook"
                                 style={{ width: '1em', height: '1em' }}
                             />
                         </a>}
-                        {twitter && <a title="twitter" href={`https://twitter.com/${twitter}`}>
+                        {twitter && <a title="twitter" target="_blank" href={`https://twitter.com/${twitter}`}>
                             <img
                                 className="fas fa-lg"
                                 src={twitterLogo}
@@ -50,7 +50,7 @@ class GroupCard extends React.Component {
                                 style={{ width: '1em', height: '1em' }}
                             />
                         </a>}
-                        {instagram && <a title="instagram" href={`https://instagram.com/${instagram}`}>
+                        {instagram && <a title="instagram" target="_blank" href={`https://instagram.com/${instagram}`}>
                             <img
                                 src={instagramLogo}
                                 alt="Instagram"
