@@ -29,6 +29,15 @@ $menu-item-active-background-color:$primary-invert;
 $menu-list-border-left: 1px solid $primary-invert;
 $menu-label-color: $white-ter;
 
+.navbar {
+  background-color: $black!important;
+  a {
+    color: white;
+  }
+  a:hover {
+    color: $body-color!important;
+  }
+}
 
 // Helper Classes
 .main-page-container {
@@ -96,6 +105,11 @@ $menu-label-color: $white-ter;
   box-shadow: none;
   -webkit-transition: all .15s ease;
   transition: all .15s ease;
+}
+
+.button.is-link {
+    background-color: $body-color!important;
+    color: $black!important;
 }
 
 .btn:hover {
